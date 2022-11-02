@@ -1,3 +1,9 @@
+const display = function (value) {
+  document.getElementById("result").value += value;
+};
+function clearScreen() {
+  document.getElementById("result").value = "";
+}
 // function to add numbers in the calculator, return "error" when string
 const add = function (a, b) {
   return a + b;
