@@ -1,40 +1,122 @@
 .calculator {
   padding: 20px;
   border-radius: 2em;
-  height: 500px;
-  width: 400px;
+  height: 350px;
+  width: 300px;
   margin: auto;
   background-color: #e684c4;
   box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
 }
-.display-box {
-  font-family: "Orbitron", sans-serif;
-  background-color: #dcdbe1;
-  border: solid black 0.8px;
-  color: black;
-  border-radius: 10px;
-  width: 98%;
-  height: 80%;
+body {
+  background-color: var(--background);
+  color: var(--font);
+  font-family: "Roboto", sans-serif;
+  line-height: 1.6;
+  /* footer support */
+  margin-bottom: 100px;
 }
-#btn {
-  background-color: #fb0066;
-}
-input[class="button"] {
-  font-family: "Orbitron", sans-serif;
-  font-weight: bolder;
-  font-size: larger;
-  text-align: center;
-  background-color: #29a38d;
-  color: white;
-  border: solid black 0.5px;
-  width: 90%;
-  border-radius: 5px;
-  height: 70%;
+
+button {
+  border: none;
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: pointer;
   outline: none;
 }
-input:active[class="button"] {
-  background: #e5e5e5;
-  -webkit-box-shadow: inset 0px 0px 5px #c1c1c1;
-  -moz-box-shadow: inset 0px 0px 5px #c1c1c1;
-  box-shadow: inset 0px 0px 5px #c1c1c1;
+
+/* MAIN */
+
+.main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 75vh;
+  min-height: 500px;
+  padding: 10px;
+  margin-top: 50px;
+}
+
+.screen {
+  padding: 10px 20px;
+  border: 2px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  background-color: gray;
+  text-align: right;
+  word-wrap: break-word;
+  word-break: break-all;
+  width: 90%;
+}
+
+.screen-last {
+  min-height: 32px;
+  font-size: 40px;
+  width: 97%;
+  border-color: transparent;
+  text-align: right;
+}
+
+.screen-current {
+  min-height: 64px;
+  font-size: 20px;
+  border-color: transparent;
+  width: 97%;
+  text-align: right;
+}
+
+.buttons-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 8px;
+}
+.span-2 {
+  grid-column: span 2;
+}
+
+.btn {
+  padding: 20px;
+  border: 2px var(--border) solid;
+  border-radius: 5px;
+  background-color: var(--btn);
+  font-size: 20px;
+}
+
+.btn:hover {
+  background-color: var(--btn-hover);
+}
+
+.btn:active {
+  background-color: var(--btn-active);
+}
+
+.btn-red {
+  background-color: var(--btn-red);
+}
+
+.btn-red:hover {
+  background-color: var(--btn-red-hover);
+}
+
+.btn-red:active {
+  background-color: var(--btn-red-active);
+}
+
+.btn-blue {
+  background-color: var(--btn-blue);
+}
+
+.btn-blue:hover {
+  background-color: var(--btn-blue-hover);
+}
+
+.btn-blue:active {
+  background-color: var(--btn-blue-active);
+}
+
+/* Disables input spinners in calc screen */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }

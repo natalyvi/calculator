@@ -1,43 +1,76 @@
-const display = function (value) {
-  document.getElementById("result").value += value;
-};
-function clearScreen() {
-  document.getElementById("result").value = "";
-}
-// function to add numbers in the calculator, return "error" when string
+let firstNumber = null;
+let secondNumber = null;
+let currentOperation = null;
+
 const add = function (a, b) {
   return a + b;
 };
 
-// function to substract numbers in the calculator, return "error" when string
 const substract = function (a, b) {
   return a - b;
 };
 
-// function to multiply, return error for string
 const multiply = function (a, b) {
   return a * b;
 };
 
-// function to split, return error for string
 const divide = function (a, b) {
   return a / b;
 };
-// operate function, applies the correct function
-function operate(operator, a, b) {
-  a = Number(a);
-  b = Number(b);
-  switch (operator) {
+
+const operate = function (operation, a, b) {
+  switch (operation) {
     case "+":
       return add(a, b);
-    case "−":
+    case "-":
       return substract(a, b);
-    case "×":
+    case "*":
       return multiply(a, b);
-    case "÷":
-      if (b === 0) return null;
-      else return divide(a, b);
-    default:
-      return null;
+    case "/":
+      if (b === 0) {
+        return "E";
+      }
+      return divide(a, b);
   }
-}
+};
+
+const displayDataById = function (id, data) {
+  document.getElementById(id).value = data;
+};
+
+const digitPress = function (value) {
+  if (currentOperation === "=") {
+    firstNumber = null;
+    secondNumber = null;
+    currentOperation = null;
+  }
+  document.getElementById("userInput").value += value;
+};
+
+const operationPress = function (value) {
+  if (currentOperation === null) {
+    firstNumber = Number(document.getElementById("userInput").value);
+  } else {
+    secondNumber = Number(document.getElementById("userInput").value);
+    let resultOfOperation;
+    if (currentOperation === "=") {
+      resultOfOperation = operate(value, firstNumber, secondNumber);
+    } else {
+      resultOfOperation = operate(currentOperation, firstNumber, secondNumber);
+    }
+    displayDataById("result", resultOfOperation);
+    firstNumber = resultOfOperation;
+  }
+  currentOperation = value;
+  displayDataById("currentOperation", currentOperation);
+  displayDataById("userInput", "");
+};
+
+const clearScreen = function () {
+  firstNumber = null;
+  secondNumber = null;
+  currentOperation = null;
+  displayDataById("userInput", "");
+  displayDataById("currentOperation", "");
+  displayDataById("result", "");
+};

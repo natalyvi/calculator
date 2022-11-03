@@ -9,24 +9,77 @@
     <link rel="stylesheet" href="calc.css" />
   </head>
   <body>
-    <table class="calculator">
-      <input type="text" value="" id="userInput" readonly />
-      <input type="text" id="currentOperation" size="1" readonly />
-      <input type="text" id="result" readonly />
-      <button value="1" onclick="digitPress(value)" id="one">1</button>
-      <button value="2" onclick="digitPress(value)" id="two">2</button>
-      <button value="3" onclick="digitPress(value)" id="three">3</button>
-      <button value="4" onclick="digitPress(value)" id="four">4</button>
-      <button value="5" onclick="digitPress(value)" id="five">5</button>
-      <button value="6" onclick="digitPress(value)" id="six">6</button>
-      <button value="7" onclick="digitPress(value)" id="seven">7</button>
-      <button value="8" onclick="digitPre*/
-      </button>
-      <button value="*" onclick="operationPress(value)" id="multiply">*</button>
-      <button value="/" onclick="operationPress(value)" id="divide">/</button>
-      <button value="=" onclick="operationPress(value)" id="equals">=</button>
-      <button value="C" onclick="clearScreen()" id="clear">C</button>
-    </table>
+    <main class="main">
+      <div class="calculator">
+        <div class="screen">
+          <div>
+            <input
+              type="text"
+              value=""
+              id="userInput"
+              class="screen-last"
+              readonly
+            />
+          </div>
+          <div>
+            <input
+              type="text"
+              id="currentOperation"
+              size="1"
+              class="screen-current"
+              readonly
+            />
+          </div>
+          <div><input type="text" id="result" class="screen-last"readonly /></div>
+         </div> 
+
+         <div class="buttons-grid">
+            <button value="1" onclick="digitPress(value)" id="one">1</button>
+            <button value="2" onclick="digitPress(value)" id="two">2</button>
+            <button value="3" onclick="digitPress(value)" id="three">3</button>
+            <button value="/" onclick="operationPress(value)" id="divide">
+              /
+            </button>
+          </tr>
+
+          <tr>
+            <button value="4" onclick="digitPress(value)" id="four">4</button>
+            <button value="5" onclick="digitPress(value)" id="five">5</button>
+            <button value="6" onclick="digitPress(value)" id="six">6</button>
+            <button value="-" onclick="operationPress(value)" id="substract">
+              -
+            </button>
+          </tr>
+
+          <tr>
+            <button value="7" onclick="digitPress(value)" id="seven">7</button>
+            <button value="8" onclick="digitPress(value)" id="eight">8</button>
+            <button value="9" onclick="digitPress(value)" id="nine">9</button>
+            <button value="+" onclick="operationPress(value)" id="add">
+              +
+            </button>
+          </tr>
+
+          <tr>
+            <button value="0" onclick="digitPress(value)" id="zero">0</button>
+            <button value="*" onclick="operationPress(value)" id="multiply">
+              *
+            </button>
+            <button value="=" onclick="operationPress(value)" id="equals">
+              =
+            </button>
+            <button
+              value="C"
+              onclick="clearScreen()"
+              id="clear"
+              class="btn-red"
+            >
+              C
+            </button>
+          
+        </div>
+      </div>
+    </main>
 
     <script src="calculator.js"></script>
   </body>
